@@ -1,27 +1,27 @@
 package net.turing.test.domain;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 public class OldPhonePadKeys {
-    private final Map<Character, Key> keys = new HashMap<>();
-
-    public OldPhonePadKeys() {
-        keys.put('2', new Key('2', "ABC"));
-        keys.put('3', new Key('3', "DEF"));
-        keys.put('4', new Key('4', "GHI"));
-        keys.put('5', new Key('5', "JKL"));
-        keys.put('6', new Key('6', "MNO"));
-        keys.put('7', new Key('7', "PQRS"));
-        keys.put('8', new Key('8', "TUV"));
-        keys.put('9', new Key('9', "WXYZ"));
-    }
+    private final List<Key> keys = List.of(
+            new Key('2', "ABC"),
+            new Key('3', "DEF"),
+            new Key('4', "GHI"),
+            new Key('5', "JKL"),
+            new Key('6', "MNO"),
+            new Key('7', "PQRS"),
+            new Key('8', "TUV"),
+            new Key('9', "WXYZ")
+    );
 
     public boolean contains(char c) {
-        return keys.containsKey(c);
+        return keys.stream().anyMatch(key -> key.getId() == c);
     }
 
     public Key getKey(char c) {
-        return keys.get(c);
+        return keys.stream()
+                .filter(key -> key.getId() == c)
+                .findFirst()
+                .orElse(null);
     }
 }
