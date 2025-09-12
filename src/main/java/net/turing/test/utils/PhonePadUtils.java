@@ -25,7 +25,7 @@ public final class PhonePadUtils {
     public static void flushBuffer(StringBuilder result, StringBuilder buffer, OldPhonePadKeys keys) {
         if (buffer.isEmpty()) return;
         char digit = buffer.charAt(0);
-        String letters = keys.getKey(digit);
+        String letters = keys.getKey(digit).letters();
         if (letters != null) {
             int index = (buffer.length() - 1) % letters.length();
             result.append(letters.charAt(index));

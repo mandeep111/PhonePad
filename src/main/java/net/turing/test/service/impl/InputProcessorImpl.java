@@ -5,10 +5,10 @@ import net.turing.test.service.interfaces.InputProcessor;
 import net.turing.test.utils.PhonePadUtils;
 
 public class InputProcessorImpl implements InputProcessor {
-    private final OldPhonePadKeys keys;
+    private final OldPhonePadKeys oldPhonePadKeys;
 
-    public InputProcessorImpl(OldPhonePadKeys keys) {
-        this.keys = keys;
+    public InputProcessorImpl(OldPhonePadKeys oldPhonePadKeys) {
+        this.oldPhonePadKeys = oldPhonePadKeys;
     }
 
     @Override
@@ -20,11 +20,11 @@ public class InputProcessorImpl implements InputProcessor {
 
         for (char c : input.toCharArray()) {
             switch (c) {
-                case '#', ' ' -> PhonePadUtils.flushBuffer(result, buffer, keys);
-                case '*' -> PhonePadUtils.handleBackspace(result, buffer, keys);
+                case '#', ' ' -> PhonePadUtils.flushBuffer(result, buffer, oldPhonePadKeys);
+                case '*' -> PhonePadUtils.handleBackspace(result, buffer, oldPhonePadKeys);
                 default -> {
-                    if (Character.isDigit(c) && this.keys.contains(c)) {
-                        PhonePadUtils.handleDigit(result, buffer, c, keys);
+                    if (Character.isDigit(c) && this.oldPhonePadKeys.contains(c)) {
+                        PhonePadUtils.handleDigit(result, buffer, c, oldPhonePadKeys);
                     }
                 }
             }
