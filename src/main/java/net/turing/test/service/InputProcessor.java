@@ -17,25 +17,32 @@ public class InputProcessor {
         StringBuilder buffer = new StringBuilder();
 
         for (char c : input.toCharArray()) {
-            if (c == '#') {
-                flushBuffer(result, buffer);
-                break;
-            } else if (c == '*') {
-                flushBuffer(result, buffer);
-                if (!result.isEmpty()) {
-                    result.deleteCharAt(result.length() - 1);
+            switch (c) {
+                case '#', ' ' -> flushBuffer(result, buffer);
+                case '*' -> handleBackspace(result, buffer);
+                default -> {
+                    if (Character.isDigit(c) && keys.contains(c)) {
+                        handleDigit(result, buffer, c);
+                    }
                 }
-            } else if (c == ' ') {
-                flushBuffer(result, buffer);
-            } else if (Character.isDigit(c) && keys.contains(c)) {
-                if (!buffer.isEmpty() && buffer.charAt(0) != c) {
-                    flushBuffer(result, buffer);
-                }
-                buffer.append(c);
             }
         }
 
         return result.toString();
+    }
+
+    private void handleBackspace(StringBuilder result, StringBuilder buffer) {
+        flushBuffer(result, buffer);
+        if (!result.isEmpty()) {
+            result.deleteCharAt(result.length() - 1);
+        }
+    }
+
+    private void handleDigit(StringBuilder result, StringBuilder buffer, char c) {
+        if (!buffer.isEmpty() && buffer.charAt(0) != c) {
+            flushBuffer(result, buffer);
+        }
+        buffer.append(c);
     }
 
     private void flushBuffer(StringBuilder result, StringBuilder buffer) {
