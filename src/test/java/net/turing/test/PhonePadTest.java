@@ -2,7 +2,7 @@ package net.turing.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import net.turing.test.service.OldPhonePad;
+import net.turing.test.service.impl.OldPhonePad;
 import net.turing.test.service.interfaces.PhonePad;
 import org.junit.jupiter.api.Test;
 

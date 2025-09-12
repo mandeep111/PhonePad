@@ -1,4 +1,4 @@
-package net.turing.test.service;
+package net.turing.test.component;
 
 import net.turing.test.domain.Key;
 import net.turing.test.domain.OldPhonePadKeys;
@@ -21,7 +21,7 @@ public class InputProcessor {
                 case '#', ' ' -> flushBuffer(result, buffer);
                 case '*' -> handleBackspace(result, buffer);
                 default -> {
-                    if (Character.isDigit(c) && keys.contains(c)) {
+                    if (Character.isDigit(c) && this.keys.contains(c)) {
                         handleDigit(result, buffer, c);
                     }
                 }
@@ -47,7 +47,7 @@ public class InputProcessor {
 
     private void flushBuffer(StringBuilder result, StringBuilder buffer) {
         if (buffer.isEmpty()) return;
-        Key key = keys.getKey(buffer.charAt(0));
+        Key key = this.keys.getKey(buffer.charAt(0));
         result.append(key.getLetter(buffer.length()));
         buffer.setLength(0);
     }
