@@ -28,13 +28,13 @@ public class PhonePad {
                 break;
             } else if (c == '*') {
                 flushBuffer(result, buffer);
-                if (result.length() > 0) {
+                if (!result.isEmpty()) {
                     result.deleteCharAt(result.length() - 1); // backspace
                 }
             } else if (c == ' ') {
                 flushBuffer(result, buffer); // pause ends current character
             } else if (Character.isDigit(c) && KEYPAD.containsKey(c)) {
-                if (buffer.length() > 0 && buffer.charAt(0) != c) {
+                if (!buffer.isEmpty() && buffer.charAt(0) != c) {
                     flushBuffer(result, buffer);
                 }
                 buffer.append(c);
