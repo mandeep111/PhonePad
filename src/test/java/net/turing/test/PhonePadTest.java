@@ -2,12 +2,13 @@ package net.turing.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import net.turing.test.service.impl.OldPhonePad;
+import net.turing.test.enums.PhonePadType;
+import net.turing.test.factory.PhonePadFactory;
 import net.turing.test.service.interfaces.PhonePad;
 import org.junit.jupiter.api.Test;
 
 class PhonePadTest {
-    private final PhonePad pad = new OldPhonePad();
+    private final PhonePad pad = PhonePadFactory.createPhonePad(PhonePadType.OLD_PHONE_PAD);
 
     @Test
     void testSingleKeyPress() {

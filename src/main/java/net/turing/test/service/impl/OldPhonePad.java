@@ -1,7 +1,7 @@
 package net.turing.test.service.impl;
 
 import net.turing.test.domain.OldPhonePadKeys;
-import net.turing.test.component.InputProcessor;
+import net.turing.test.service.interfaces.InputProcessor;
 import net.turing.test.service.interfaces.PhonePad;
 
 public class OldPhonePad implements PhonePad {
@@ -9,7 +9,7 @@ public class OldPhonePad implements PhonePad {
     private final InputProcessor processor;
 
     public OldPhonePad() {
-        this.processor = new InputProcessor(new OldPhonePadKeys());
+        this.processor = new InputProcessorImpl(new OldPhonePadKeys());
     }
 
     @Override

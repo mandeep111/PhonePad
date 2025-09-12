@@ -1,12 +1,12 @@
 package net.turing.test;
 
-import net.turing.test.service.impl.OldPhonePad;
+import net.turing.test.enums.PhonePadType;
+import net.turing.test.factory.PhonePadFactory;
 import net.turing.test.service.interfaces.PhonePad;
 
 public class Main {
     public static void main(String[] args) {
-        PhonePad pad = new OldPhonePad();
-
+        PhonePad pad = PhonePadFactory.createPhonePad(PhonePadType.OLD_PHONE_PAD);
         System.out.println(pad.processInput("33#"));               // E
         System.out.println(pad.processInput("227*#"));             // B
         System.out.println(pad.processInput("4433555 555666#"));   // HELLO
