@@ -1,4 +1,4 @@
-package net.turing.test.service.interfaces;
+package net.turing.phone.service.interfaces;
 
 public abstract class BasePhonePad implements PhonePad {
     protected final InputProcessor processor;

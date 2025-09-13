@@ -1,9 +1,9 @@
-package net.turing.test;
+package net.turing.phone;
 
-import net.turing.test.enums.KeyboardType;
-import net.turing.test.factory.PhonePadBuilder;
-import net.turing.test.service.impl.OldPhonePadRules;
-import net.turing.test.service.interfaces.PhonePad;
+import net.turing.phone.enums.KeyboardType;
+import net.turing.phone.factory.PhonePadBuilder;
+import net.turing.phone.service.impl.OldPhonePadRules;
+import net.turing.phone.service.interfaces.PhonePad;
 
 // Just for manual testing
 public class Main {

@@ -1,3 +1,3 @@
-package net.turing.test.domain;
+package net.turing.phone.domain;
 
 public record PhoneKey(char digit, String letters) {}

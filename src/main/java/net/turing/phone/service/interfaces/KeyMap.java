@@ -1,6 +1,6 @@
-package net.turing.test.service.interfaces;
+package net.turing.phone.service.interfaces;
 
-import net.turing.test.domain.PhoneKey;
+import net.turing.phone.domain.PhoneKey;
 
 public interface KeyMap {
     boolean contains(char c);

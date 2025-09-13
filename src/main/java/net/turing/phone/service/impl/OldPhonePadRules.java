@@ -1,7 +1,7 @@
-package net.turing.test.service.impl;
+package net.turing.phone.service.impl;
 
-import net.turing.test.service.interfaces.KeyMap;
-import net.turing.test.service.interfaces.ProcessingRules;
+import net.turing.phone.service.interfaces.KeyMap;
+import net.turing.phone.service.interfaces.ProcessingRules;
 
 public class OldPhonePadRules implements ProcessingRules {
     @Override

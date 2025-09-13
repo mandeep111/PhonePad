@@ -2,10 +2,10 @@ package net.turing.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import net.turing.test.enums.KeyboardType;
-import net.turing.test.factory.PhonePadBuilder;
-import net.turing.test.service.impl.OldPhonePadRules;
-import net.turing.test.service.interfaces.PhonePad;
+import net.turing.phone.enums.KeyboardType;
+import net.turing.phone.factory.PhonePadBuilder;
+import net.turing.phone.service.impl.OldPhonePadRules;
+import net.turing.phone.service.interfaces.PhonePad;
 import org.junit.jupiter.api.Test;
 
 class PhonePadTest {

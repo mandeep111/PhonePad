@@ -1,4 +1,4 @@
-package net.turing.test.enums;
+package net.turing.phone.enums;
 
 public enum LanguageType {
     ENGLISH,

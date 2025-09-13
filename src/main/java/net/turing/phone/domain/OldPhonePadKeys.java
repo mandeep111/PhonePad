@@ -1,6 +1,6 @@
-package net.turing.test.domain;
+package net.turing.phone.domain;
 
-import net.turing.test.service.interfaces.KeyMap;
+import net.turing.phone.service.interfaces.KeyMap;
 
 import java.util.HashMap;
 import java.util.List;

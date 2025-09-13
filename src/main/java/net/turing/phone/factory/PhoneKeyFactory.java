@@ -1,8 +1,8 @@
-package net.turing.test.factory;
+package net.turing.phone.factory;
 
-import net.turing.test.domain.OldPhonePadKeys;
-import net.turing.test.domain.PhoneKey;
-import net.turing.test.enums.KeyboardType;
+import net.turing.phone.domain.OldPhonePadKeys;
+import net.turing.phone.domain.PhoneKey;
+import net.turing.phone.enums.KeyboardType;
 
 import java.util.List;
 import java.util.Objects;

@@ -2,6 +2,7 @@ package net.turing.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import net.turing.phone.OldPhonePadUtility;
 import org.junit.jupiter.api.Test;
 
 class OldPhonePadUtilityTest {

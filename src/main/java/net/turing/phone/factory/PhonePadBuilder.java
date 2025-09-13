@@ -1,14 +1,15 @@
-package net.turing.test.factory;
+package net.turing.phone.factory;
 
 
-import net.turing.test.enums.KeyboardType;
-import net.turing.test.enums.LanguageType;
-import net.turing.test.service.impl.*;
-import net.turing.test.service.interfaces.BasePhonePad;
-import net.turing.test.service.interfaces.KeyMap;
-import net.turing.test.service.interfaces.PhonePad;
-import net.turing.test.service.interfaces.ProcessingRules;
-import net.turing.test.component.BufferProcessor;
+import net.turing.phone.enums.KeyboardType;
+import net.turing.phone.enums.LanguageType;
+import net.turing.phone.service.impl.InputProcessorImpl;
+import net.turing.phone.service.impl.OldPhonePadRules;
+import net.turing.phone.service.interfaces.BasePhonePad;
+import net.turing.phone.service.interfaces.KeyMap;
+import net.turing.phone.service.interfaces.PhonePad;
+import net.turing.phone.service.interfaces.ProcessingRules;
+import net.turing.phone.component.BufferProcessor;
 
 public class PhonePadBuilder {
     private KeyboardType keyboardType = KeyboardType.LETTERS;

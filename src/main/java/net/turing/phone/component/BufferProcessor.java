@@ -1,7 +1,7 @@
-package net.turing.test.component;
+package net.turing.phone.component;
 
-import net.turing.test.domain.PhoneKey;
-import net.turing.test.service.interfaces.KeyMap;
+import net.turing.phone.domain.PhoneKey;
+import net.turing.phone.service.interfaces.KeyMap;
 
 public class BufferProcessor {
     public void handleBackspace(StringBuilder result, StringBuilder buffer, KeyMap keyMap) {

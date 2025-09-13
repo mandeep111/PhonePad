@@ -1,8 +1,8 @@
 package net.turing.test;
 
-import net.turing.test.component.BufferProcessor;
-import net.turing.test.domain.PhoneKey;
-import net.turing.test.service.interfaces.KeyMap;
+import net.turing.phone.component.BufferProcessor;
+import net.turing.phone.domain.PhoneKey;
+import net.turing.phone.service.interfaces.KeyMap;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
