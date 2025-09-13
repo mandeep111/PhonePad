@@ -1,14 +1,19 @@
 package net.turing.test.service.impl;
 
-import net.turing.test.domain.OldPhonePadKeys;
 import net.turing.test.service.interfaces.InputProcessor;
-import net.turing.test.utils.PhonePadUtils;
+import net.turing.test.service.interfaces.KeyMap;
+import net.turing.test.service.interfaces.ProcessingRules;
+import net.turing.test.component.BufferProcessor;
 
-public class InputProcessorImpl implements InputProcessor {
-    private final OldPhonePadKeys oldPhonePadKeys;
+public class ConfigurableInputProcessor implements InputProcessor {
+    private final KeyMap keyMap;
+    private final ProcessingRules rules;
+    private final BufferProcessor bufferProcessor;
 
-    public InputProcessorImpl(OldPhonePadKeys oldPhonePadKeys) {
-        this.oldPhonePadKeys = oldPhonePadKeys;
+    public ConfigurableInputProcessor(KeyMap keyMap, ProcessingRules rules, BufferProcessor bufferProcessor) {
+        this.keyMap = keyMap;
+        this.rules = rules;
+        this.bufferProcessor = bufferProcessor;
     }
 
     @Override
@@ -19,14 +24,12 @@ public class InputProcessorImpl implements InputProcessor {
         StringBuilder buffer = new StringBuilder();
 
         for (char c : input.toCharArray()) {
-            switch (c) {
-                case '#', ' ' -> PhonePadUtils.flushBuffer(result, buffer, oldPhonePadKeys);
-                case '*' -> PhonePadUtils.handleBackspace(result, buffer, oldPhonePadKeys);
-                default -> {
-                    if (Character.isDigit(c) && this.oldPhonePadKeys.contains(c)) {
-                        PhonePadUtils.handleDigit(result, buffer, c, oldPhonePadKeys);
-                    }
-                }
+            if (rules.isFlushCharacter(c)) {
+                bufferProcessor.flushBuffer(result, buffer, keyMap);
+            } else if (rules.isBackspaceCharacter(c)) {
+                bufferProcessor.handleBackspace(result, buffer, keyMap);
+            } else if (rules.isValidDigit(c, keyMap)) {
+                bufferProcessor.handleDigit(result, buffer, c, keyMap);
             }
         }
 
