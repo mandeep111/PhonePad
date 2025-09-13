@@ -2,9 +2,12 @@ package net.turing.test;
 
 import java.util.*;
 
-public class OldPhonePad {
+//*
+// Utility class to process old phone keypad input
+// */
+public class OldPhonePadUtility {
 
-    private OldPhonePad() {}
+    private OldPhonePadUtility() {}
 
     private static final Map<Character, String> KEYPAD = Map.of(
             '2', "ABC",

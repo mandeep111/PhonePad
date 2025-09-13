@@ -4,49 +4,49 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class OldPhonePadTest {
+class OldPhonePadUtilityTest {
     @Test
     void testSingleKeyPress() {
-        assertEquals("E", OldPhonePad.process("33#"));
+        assertEquals("E", OldPhonePadUtility.process("33#"));
     }
 
     @Test
     void testFalseSingleKeyPress() {
-        assertNotEquals("D", OldPhonePad.process("33#"));
+        assertNotEquals("D", OldPhonePadUtility.process("33#"));
     }
 
     @Test
     void testBackspace() {
-        assertEquals("B", OldPhonePad.process("227*#"));
+        assertEquals("B", OldPhonePadUtility.process("227*#"));
     }
 
     @Test
     void testHello() {
-        assertEquals("HELLO", OldPhonePad.process("4433555 555666#"));
+        assertEquals("HELLO", OldPhonePadUtility.process("4433555 555666#"));
     }
 
     @Test
     void testTuring() {
-        assertEquals("TURING", OldPhonePad.process("8 88777444666*664#"));
+        assertEquals("TURING", OldPhonePadUtility.process("8 88777444666*664#"));
     }
 
     @Test
     void testEmptyInput() {
-        assertEquals("", OldPhonePad.process(""));
+        assertEquals("", OldPhonePadUtility.process(""));
     }
 
     @Test
     void testOnlyHash() {
-        assertEquals("", OldPhonePad.process("#"));
+        assertEquals("", OldPhonePadUtility.process("#"));
     }
 
     @Test
     void testMultipleBackspaces() {
-        assertEquals("A", OldPhonePad.process("22*2#")); // B -> backspace -> A
+        assertEquals("A", OldPhonePadUtility.process("22*2#")); // B -> backspace -> A
     }
 
     @Test
     void testConsecutiveSpaces() {
-        assertEquals("AA", OldPhonePad.process("2 2#")); // pause allows separate A's
+        assertEquals("AA", OldPhonePadUtility.process("2 2#")); // pause allows separate A's
     }
 }

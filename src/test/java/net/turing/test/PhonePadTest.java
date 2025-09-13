@@ -2,13 +2,17 @@ package net.turing.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import net.turing.test.enums.PhonePadType;
-import net.turing.test.factory.PhonePadFactory;
+import net.turing.test.enums.KeyboardType;
+import net.turing.test.factory.PhonePadBuilder;
+import net.turing.test.service.impl.OldPhonePadRules;
 import net.turing.test.service.interfaces.PhonePad;
 import org.junit.jupiter.api.Test;
 
 class PhonePadTest {
-    private final PhonePad pad = PhonePadFactory.createPhonePad(PhonePadType.OLD_PHONE_PAD);
+    private final PhonePad pad = new PhonePadBuilder()
+            .withKeyboard(KeyboardType.LETTERS)
+            .withRules(new OldPhonePadRules())
+            .build();
 
     @Test
     void testSingleKeyPress() {

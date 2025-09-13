@@ -5,12 +5,12 @@ import net.turing.test.service.interfaces.KeyMap;
 import net.turing.test.service.interfaces.ProcessingRules;
 import net.turing.test.component.BufferProcessor;
 
-public class ConfigurableInputProcessor implements InputProcessor {
+public class InputProcessorImpl implements InputProcessor {
     private final KeyMap keyMap;
     private final ProcessingRules rules;
     private final BufferProcessor bufferProcessor;
 
-    public ConfigurableInputProcessor(KeyMap keyMap, ProcessingRules rules, BufferProcessor bufferProcessor) {
+    public InputProcessorImpl(KeyMap keyMap, ProcessingRules rules, BufferProcessor bufferProcessor) {
         this.keyMap = keyMap;
         this.rules = rules;
         this.bufferProcessor = bufferProcessor;

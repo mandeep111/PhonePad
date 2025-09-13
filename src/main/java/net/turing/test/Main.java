@@ -1,12 +1,17 @@
 package net.turing.test;
 
-import net.turing.test.enums.PhonePadType;
-import net.turing.test.factory.PhonePadFactory;
+import net.turing.test.enums.KeyboardType;
+import net.turing.test.factory.PhonePadBuilder;
+import net.turing.test.service.impl.OldPhonePadRules;
 import net.turing.test.service.interfaces.PhonePad;
 
+// Just for manual testing
 public class Main {
     public static void main(String[] args) {
-        PhonePad pad = PhonePadFactory.createPhonePad(PhonePadType.OLD_PHONE_PAD);
+        PhonePad pad = new PhonePadBuilder()
+                .withKeyboard(KeyboardType.LETTERS)
+                .withRules(new OldPhonePadRules())
+                .build();
         System.out.println(pad.processInput("33#"));               // E
         System.out.println(pad.processInput("227*#"));             // B
         System.out.println(pad.processInput("4433555 555666#"));   // HELLO
@@ -15,5 +20,7 @@ public class Main {
         System.out.println(pad.processInput("#"));                 // (empty string)
         System.out.println(pad.processInput("22*2#"));             // A
         System.out.println(pad.processInput("2 2#"));              // AA
+
+
     }
 }

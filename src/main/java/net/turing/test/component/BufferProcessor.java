@@ -1,4 +1,4 @@
-package net.turing.test.utils;
+package net.turing.test.component;
 
 import net.turing.test.domain.PhoneKey;
 import net.turing.test.service.interfaces.KeyMap;
